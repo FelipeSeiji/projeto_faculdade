@@ -45,6 +45,7 @@ public class CandidatoService {
         return this.candidatoRepository.save(candidatoUpdate);
     }
 
+    @Transactional
     public void delete(Integer id) {
         findById(id);
         try {
@@ -54,6 +55,7 @@ public class CandidatoService {
         }
     }
 
+    @Transactional
     public List<Candidato> findAll(){
         return this.candidatoRepository.findAll();
     }

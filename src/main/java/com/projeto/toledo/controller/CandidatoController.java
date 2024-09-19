@@ -31,14 +31,15 @@ public class CandidatoController {
     private CandidatoService candidatoService;
 
     @GetMapping
+    @Validated(createCandidato.class)
     public ResponseEntity<List<Candidato>> findAll(){
         List<Candidato> list = candidatoService.findAll();
         return ResponseEntity.ok().body(list); 
     }
 
     @GetMapping("/{id}")
+    @Validated(createCandidato.class)
     public ResponseEntity<Candidato> findById(@PathVariable Integer id){
-
         Candidato candidato = this.candidatoService.findById(id);
         return ResponseEntity.ok().body(candidato);
     }
@@ -59,8 +60,8 @@ public class CandidatoController {
         this.candidatoService.update(candidato);
         return ResponseEntity.noContent().build();
     }
-
     @DeleteMapping("/{id}")
+    @Validated(createCandidato.class)
     public ResponseEntity<Void> delete(@PathVariable Integer id){
         this.candidatoService.delete(id);
         return ResponseEntity.noContent().build();

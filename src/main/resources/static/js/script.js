@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  //Função para criar e atualizar
   async function criarOuAtualizarCandidato(candidato) {
     try {
       const id = candidato.id ? `/${candidato.id}` : "";
@@ -35,6 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  //Função para deletar
   async function deletarCandidato(id) {
     try {
       const response = await fetch(`${url}/${id}`, {
@@ -47,6 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  //Função para mostrar todos os usuarios no banco de dados
   function mostrarTodos(candidatos) {
     candidatosTBody.innerHTML = "";
     candidatos.forEach((candidato) => {
@@ -68,6 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  //Função para editar
   function editarCandidato(id) {
     const row = document.querySelector(`tr[data-id='${id}']`);
     const cells = row.querySelectorAll("td");
@@ -80,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("propostaGoverno").value = cells[7].innerText;
     document.getElementById("apoioPolitico").value = cells[8].innerText;
   }
-
+  
   form.addEventListener("submit", (event) => {
     event.preventDefault();
     const candidato = {
@@ -96,6 +100,5 @@ document.addEventListener("DOMContentLoaded", () => {
     criarOuAtualizarCandidato(candidato);
     form.reset();
   });
-
   fetchCandidatos();
 });

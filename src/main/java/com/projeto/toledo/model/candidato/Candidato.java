@@ -22,7 +22,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Candidato {
     public interface createCandidato{
-
     }
     public interface updateCandidato{
     }
