@@ -35,12 +35,13 @@ public class CandidatoService {
     @Transactional
     public Candidato update(Candidato candidato){
         Candidato candidatoUpdate = findById(candidato.getId());
+        candidatoUpdate.setNome(candidato.getNome());
         candidatoUpdate.setIdade(candidato.getIdade());
         candidatoUpdate.setPartido(candidato.getPartido());
         candidatoUpdate.setDescricao(candidato.getDescricao());
         candidatoUpdate.setHistorico(candidato.getHistorico());
         candidatoUpdate.setEscolaridade(candidato.getEscolaridade());
-        candidato.setPropostaGoverno(candidato.getPropostaGoverno());
+        candidatoUpdate.setPropostaGoverno(candidato.getPropostaGoverno());
         candidatoUpdate.setApoioPolitico(candidato.getApoioPolitico());
         return this.candidatoRepository.save(candidatoUpdate);
     }
